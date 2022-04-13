@@ -8,7 +8,10 @@ const Database_1 = require("./Configs/Database");
 const dotenv_1 = require("dotenv");
 const morgan_1 = __importDefault(require("morgan"));
 const compression_1 = __importDefault(require("compression"));
+const helmet_1 = __importDefault(require("helmet"));
+const cors_1 = __importDefault(require("cors"));
 const routes_1 = require("./Routes/routes");
+const express_rate_limit_1 = require("express-rate-limit");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 8080;
 function main() {
@@ -17,7 +20,16 @@ function main() {
     app.use(express_1.default.json());
     app.use((0, compression_1.default)());
     app.use((0, morgan_1.default)("dev"));
+    app.use((0, helmet_1.default)());
+    app.use((0, cors_1.default)({
+        origin: '*'
+    }));
     app.use(routes_1.router);
+    app.use((0, express_rate_limit_1.rateLimit)({
+        windowMs: 10000,
+        max: 10,
+        message: 'Too many request, try again letter'
+    }));
     app.get('/', (req, res) => {
         res.status(200).send('Welcome to my API');
     });

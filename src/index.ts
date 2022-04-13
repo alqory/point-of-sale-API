@@ -6,7 +6,7 @@ import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors'
 import { router } from './Routes/routes';
-import { limitRequest } from './Security/rateLimit';
+import { rateLimit } from 'express-rate-limit';
 
 const app:Express = express();
 const PORT:number | string = process.env.PORT || 8080 
@@ -26,7 +26,11 @@ function main(): void{
     }))
     app.use(router)
 
-    app.use(limitRequest)
+    app.use(rateLimit({
+        windowMs : 10000,
+        max      : 10,
+        message   : 'Too many request, try again letter'
+    }))
 
     app.get('/', (req, res) => {
         res.status(200).send('Welcome to my API')

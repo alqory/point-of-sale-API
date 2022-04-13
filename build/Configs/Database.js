@@ -11,28 +11,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dbAuthenticate = exports.posDB = void 0;
 const sequelize_1 = require("sequelize");
-// config();
+const dotenv_1 = require("dotenv");
+(0, dotenv_1.config)();
 // Production db setting
-exports.posDB = new sequelize_1.Sequelize('posdb', 'postgres', '123456', {
-    host: 'localhost',
-    dialect: "postgres",
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    },
-});
-// Deployment setting
-// export const DeploymentDB = new Sequelize(`${process.env.DATABASE_URI}`,{
-//     dialectOptions : {
-//         ssl : {
-//             require : true,
-//             rejectUnauthorized : false
-//         }
-//     }
+// export const posDB = new Sequelize('posdb', 'postgres','123456',{
+//     host : 'localhost',
+//     dialect : "postgres",
+//     pool: {
+//         max: 5,
+//         min: 0,
+//         acquire: 30000,
+//         idle: 10000
+//       },
 // })
-// `posgress://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_HOST}/${process.env.DB_NAME}`,
+// Deployment setting
+exports.posDB = new sequelize_1.Sequelize(`${process.env.DATABASE_URI}`, {
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
+});
 const dbAuthenticate = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield exports.posDB.authenticate();
