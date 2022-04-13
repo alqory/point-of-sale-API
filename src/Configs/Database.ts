@@ -17,14 +17,20 @@ config();
 // })
 
 // Deployment setting
-export const posDB = new Sequelize('postgres://cvytsjvhvalani:c971554fbabdedc5001eefc0c50b04e7d760174a69970002927e1b6f416ed4b3@ec2-34-207-12-160.compute-1.amazonaws.com:5432/d4uucgtu5ved42',{
-    dialectOptions : {
-        ssl : {
-            require : true,
-            rejectUnauthorized : false
+export const posDB = new Sequelize(
+    process.env.NODE_ENV === 'production' ? `${process.env.DATABASE_URL}` :
+    `postgres://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`
+    ,
+    
+    // If development mode, remove or ignore dialectOptions
+    {
+        dialectOptions : {
+         ssl: {
+             require: true,
+             rejectUnauthorized: false
+         }
         }
-    }
-})
+    })
 
 
 

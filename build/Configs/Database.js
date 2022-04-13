@@ -25,7 +25,10 @@ const dotenv_1 = require("dotenv");
 //       },
 // })
 // Deployment setting
-exports.posDB = new sequelize_1.Sequelize(`${process.env.DATABASE_URI}`, {
+exports.posDB = new sequelize_1.Sequelize(process.env.NODE_ENV === 'production' ? `${process.env.DATABASE_URL}` :
+    `postgres://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`, 
+// If development mode, remove or ignore dialectOptions
+{
     dialectOptions: {
         ssl: {
             require: true,
