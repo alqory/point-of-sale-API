@@ -17,7 +17,7 @@ config();
 // })
 
 // Deployment setting
-export const posDB = new Sequelize(`${process.env.DATABASE_URI}`,{
+export const posDB = new Sequelize(`${process.env.DATABASE_URL}`,{
     dialectOptions : {
         ssl : {
             require : true,
