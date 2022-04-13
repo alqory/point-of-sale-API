@@ -1,7 +1,6 @@
 import express, { Express } from 'express';
 import {dbAuthenticate} from './Configs/Database';
 import { config } from 'dotenv';
-import morgan from 'morgan';
 import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors'
@@ -25,11 +24,6 @@ function main(): void{
     }))
     app.use(router)
 
-    if(process.env.NODE_ENV !== 'production') {
-        app.use(morgan("dev"))
-    }else{
-        return;
-    }
 
     app.use(rateLimit({
         windowMs : 10000,

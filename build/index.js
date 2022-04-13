@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const Database_1 = require("./Configs/Database");
 const dotenv_1 = require("dotenv");
-const morgan_1 = __importDefault(require("morgan"));
 const compression_1 = __importDefault(require("compression"));
 const helmet_1 = __importDefault(require("helmet"));
 const cors_1 = __importDefault(require("cors"));
@@ -24,12 +23,6 @@ function main() {
         origin: '*'
     }));
     app.use(routes_1.router);
-    if (process.env.NODE_ENV !== 'production') {
-        app.use((0, morgan_1.default)("dev"));
-    }
-    else {
-        return;
-    }
     app.use((0, express_rate_limit_1.rateLimit)({
         windowMs: 10000,
         max: 10,
