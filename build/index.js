@@ -19,12 +19,17 @@ function main() {
     (0, Database_1.dbAuthenticate)();
     app.use(express_1.default.json());
     app.use((0, compression_1.default)());
-    app.use((0, morgan_1.default)("dev"));
     app.use((0, helmet_1.default)());
     app.use((0, cors_1.default)({
         origin: '*'
     }));
     app.use(routes_1.router);
+    if (process.env.NODE_ENV !== 'production') {
+        app.use((0, morgan_1.default)("dev"));
+    }
+    else {
+        return;
+    }
     app.use((0, express_rate_limit_1.rateLimit)({
         windowMs: 10000,
         max: 10,

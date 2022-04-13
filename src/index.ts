@@ -19,12 +19,17 @@ function main(): void{
     dbAuthenticate();
     app.use(express.json())
     app.use(compression())
-    app.use(morgan("dev"))
     app.use(helmet())
     app.use(cors({
         origin : '*'
     }))
     app.use(router)
+
+    if(process.env.NODE_ENV !== 'production') {
+        app.use(morgan("dev"))
+    }else{
+        return;
+    }
 
     app.use(rateLimit({
         windowMs : 10000,
