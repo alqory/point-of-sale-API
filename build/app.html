@@ -14,6 +14,10 @@
             max-width: 700px;
             margin: 20px auto;
         }
+        p {
+            padding: 5px;
+        }
+        
     </style>
 </head>
 <body>
@@ -23,7 +27,9 @@
             <div class="product-api">
                 <h2>Product Endpoint</h2>
                 <span style="display: flex;gap: 10px;">
-                    <p>GET</p>
+                    <p style="background-color: aquamarine; border-radius: 5px;" >
+                        GET
+                    </p>
                     <p>
                         https://qorypos-api.herokuapp.com/api/product <br>
                         https://qorypos-api.herokuapp.com/api/product/{id} <br>
@@ -32,33 +38,45 @@
                     
                 </span>
                 <span style="display: flex;gap: 10px;">
-                    <p>POST</p>
+                    <p style="background-color: rgb(103, 237, 103); border-radius: 5px;">
+                        POST
+                    </p>
                     <p>https://qorypos-api.herokuapp.com/api/product</p>
                 </span>
                 <span style="display: flex;gap: 10px;">
-                    <p>PUT</p>
+                    <p style="background-color: yellow; border-radius: 5px;">
+                        PUT
+                    </p>
                     <p>https://qorypos-api.herokuapp.com/api/product/update/{id}</p>
                 </span>
                 <span style="display: flex;gap: 10px;">
-                    <p>DELETE</p>
+                    <p style="background-color: red; border-radius: 5px; color: white;">
+                        DELETE
+                    </p>
                     <p>https://qorypos-api.herokuapp.com/api/product/delete/{id}</p>
                 </span>
             </div>
             <div class="queue-api">
                 <h2>Queue Endpoint</h2>
                 <span style="display: flex;gap: 10px;">
-                    <p>GET</p>
+                    <p style="background-color: aquamarine; border-radius: 5px;" >
+                        GET
+                    </p>
                     <p>
                         https://qorypos-api.herokuapp.com/api/queue <br>
                         https://qorypos-api.herokuapp.com/api/product?category={food|drink}
                     </p>
                 </span>
                 <span style="display: flex;gap: 10px;">
-                    <p>POST</p>
+                    <p style="background-color: rgb(103, 237, 103); border-radius: 5px;">
+                        POST
+                    </p>
                     <p>https://qorypos-api.herokuapp.com/api/queue</p>
                 </span>
                 <span style="display: flex;gap: 10px;">
-                    <p>DELETE</p>
+                    <p style="background-color: red; border-radius: 5px; color: white;">
+                        DELETE
+                    </p>
                     <p>
                         https://qorypos-api.herokuapp.com/api/queue/delete/{id} <br>
                         https://qorypos-api.herokuapp.com/api/queue/deleteAllData (delete all data)
@@ -68,17 +86,23 @@
             <div class="activity-api">
                 <h2>Activity Endpoint</h2>
                 <span style="display: flex;gap: 10px;">
-                    <p>GET</p>
+                    <p style="background-color: aquamarine; border-radius: 5px;">
+                        GET
+                    </p>
                     <p>https://qorypos-api.herokuapp.com/api/activity</p>
                 </span>
                 <span style="display: flex;gap: 10px;">
-                    <p>POST</p>
+                    <p style="background-color: rgb(103, 237, 103); border-radius: 5px;">
+                        POST
+                    </p>
                     <p>https://qorypos-api.herokuapp.com/api/activity</p>
                 </span>
                 <span style="display: flex;gap: 10px;">
-                    <p>DELETE</p>
+                    <p  style="background-color: red; border-radius: 5px; color: white;">
+                        DELETE
+                    </p>
                     <p>
-                        https://qorypos-api.herokuapp.com/api/activity/delete/:id <br>
+                        https://qorypos-api.herokuapp.com/api/activity/delete/{id}<br>
                         https://qorypos-api.herokuapp.com/api/activity/deleteAll (delete all data)
                     </p>
                 </span>
