@@ -16,12 +16,12 @@ config();
 //       },
 // })
 
-export const posDB = new Sequelize(`${process.env.DATABASE_URL}`,{
+export const posDB = new Sequelize(`${process.env.DATABASE_URI}`,{
     dialectOptions : {
         ssl :  {
-                          require: true,
-                          rejectUnauthorized: false
-                    }
+                    require: true,
+                    rejectUnauthorized: false
+                }
     }
 })
 

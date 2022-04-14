@@ -41,6 +41,4 @@ exports.product = Database_1.posDB.define('product', {
 }, {
     timestamps: false
 });
-// product.sync({
-//     force : true
-// })
+exports.product.sync();

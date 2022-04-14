@@ -24,7 +24,7 @@ const dotenv_1 = require("dotenv");
 //         idle: 10000
 //       },
 // })
-exports.posDB = new sequelize_1.Sequelize(`${process.env.DATABASE_URL}`, {
+exports.posDB = new sequelize_1.Sequelize(`${process.env.DATABASE_URI}`, {
     dialectOptions: {
         ssl: {
             require: true,

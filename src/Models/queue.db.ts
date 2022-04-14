@@ -25,6 +25,4 @@ export const queue = posDB.define('queue', {
 })
 
 // If have changes in db column, ignone comment sync in bottom!
-// queue.sync({
-//     force : true
-// })
+queue.sync()
