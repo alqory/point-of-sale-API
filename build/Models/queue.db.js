@@ -25,6 +25,6 @@ exports.queue = Database_1.posDB.define('queue', {
     timestamps: false
 });
 // If have changes in db column, ignone comment sync in bottom!
-exports.queue.sync({
-    force: true
-});
+// queue.sync({
+//     force : true
+// })

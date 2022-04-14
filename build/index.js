@@ -29,7 +29,7 @@ function main() {
         message: 'Too many request, try again letter'
     }));
     app.get('/', (req, res) => {
-        res.status(200).send('Welcome to my API');
+        res.sendFile('./app.html', { root: __dirname });
     });
     app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
 }

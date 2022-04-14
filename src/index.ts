@@ -32,7 +32,7 @@ function main(): void{
     }))
 
     app.get('/', (req, res) => {
-        res.status(200).send('Welcome to my API')
+        res.sendFile('./app.html', { root : __dirname})
     })
 
     

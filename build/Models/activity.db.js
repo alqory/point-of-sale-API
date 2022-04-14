@@ -21,6 +21,6 @@ exports.activity = Database_1.posDB.define('activity', {
 }, {
     timestamps: false
 });
-exports.activity.sync({
-    force: true
-});
+// activity.sync({
+//     force : true
+// })
