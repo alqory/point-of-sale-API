@@ -1,16 +1,10 @@
 import { Request, Response } from 'express';
 import { product } from '../Models/product.db';
+import { productType } from '../Types/Type'
 
-type productsTypes = {
-    id      :number,
-    title   :string,
-    category:string,
-    images  :string,
-    price   :number,
-    qyt     :number,
-    decs    :string,
-    total_price:number
-}
+
+type createOrUpdateProductType = 
+    Pick<productType, 'title' | 'category' | 'images' | 'price'>
 
 export const getAllProduct = async(req: Request<{},{},{},{category:string}>, res: Response):Promise<void> => {
     const { category } = req.query;
@@ -61,7 +55,7 @@ export const getDetailProduct = async(req:Request<{id:number}, {}, {}, {}>, res:
     }
 }
 
-export const createProduct = async(req:Request<{},{},productsTypes,{}>, res:Response):Promise<void> => {
+export const createProduct = async(req:Request<{},{},createOrUpdateProductType,{}>, res:Response):Promise<void> => {
     const { title, category, images, price } = req.body;
     try {
         await product.create({
@@ -87,7 +81,7 @@ export const createProduct = async(req:Request<{},{},productsTypes,{}>, res:Resp
     }
 }
 
-export const updateProduct = async(req:Request<{id:number},{},productsTypes,{}>, res:Response):Promise<void> => {
+export const updateProduct = async(req:Request<{id:number},{},createOrUpdateProductType,{}>, res:Response):Promise<void> => {
     const { id } = req.params;
     const { title, category, images, price } = req.body;
 

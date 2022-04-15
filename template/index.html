@@ -4,30 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>POS API</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-        *{
-            font-family: 'Open Sans', sans-serif;
-        }
-        .container {
-            max-width: 700px;
-            margin: 20px auto;
-        }
-        p {
-            padding: 5px;
-        }
-        
-    </style>
 </head>
 <body>
     <div class="container">
-        <section>
-            <h1>Welcome to my API</h1>
-            <div class="product-api">
+        <section class="container-body">
+            <h1>qorypos API</h1>
+            <div class="product api">
                 <h2>Product Endpoint</h2>
-                <span style="display: flex;gap: 10px;">
-                    <p style="background-color: aquamarine; border-radius: 5px;" >
+                <span">
+                    <p class="api-method get">
                         GET
                     </p>
                     <p>
@@ -37,29 +24,29 @@
                     </p>
                     
                 </span>
-                <span style="display: flex;gap: 10px;">
-                    <p style="background-color: rgb(103, 237, 103); border-radius: 5px;">
+                <span>
+                    <p class="api-method post">
                         POST
                     </p>
                     <p>https://qorypos-api.herokuapp.com/api/product</p>
                 </span>
-                <span style="display: flex;gap: 10px;">
-                    <p style="background-color: yellow; border-radius: 5px;">
+                <span>
+                    <p class="api-method put">
                         PUT
                     </p>
                     <p>https://qorypos-api.herokuapp.com/api/product/update/{id}</p>
                 </span>
-                <span style="display: flex;gap: 10px;">
-                    <p style="background-color: red; border-radius: 5px; color: white;">
+                <span>
+                    <p class="api-method delete">
                         DELETE
                     </p>
                     <p>https://qorypos-api.herokuapp.com/api/product/delete/{id}</p>
                 </span>
             </div>
-            <div class="queue-api">
+            <div class="queue api">
                 <h2>Queue Endpoint</h2>
-                <span style="display: flex;gap: 10px;">
-                    <p style="background-color: aquamarine; border-radius: 5px;" >
+                <span>
+                    <p class="api-method get">
                         GET
                     </p>
                     <p>
@@ -67,14 +54,14 @@
                         https://qorypos-api.herokuapp.com/api/product?category={food|drink}
                     </p>
                 </span>
-                <span style="display: flex;gap: 10px;">
-                    <p style="background-color: rgb(103, 237, 103); border-radius: 5px;">
+                <span>
+                    <p class="api-method post">
                         POST
                     </p>
                     <p>https://qorypos-api.herokuapp.com/api/queue</p>
                 </span>
-                <span style="display: flex;gap: 10px;">
-                    <p style="background-color: red; border-radius: 5px; color: white;">
+                <span>
+                    <p class="api-method delete">
                         DELETE
                     </p>
                     <p>
@@ -83,22 +70,22 @@
                     </p>
                 </span>
             </div>
-            <div class="activity-api">
+            <div class="activity api">
                 <h2>Activity Endpoint</h2>
-                <span style="display: flex;gap: 10px;">
-                    <p style="background-color: aquamarine; border-radius: 5px;">
+                <span>
+                    <p class="api-method get" >
                         GET
                     </p>
                     <p>https://qorypos-api.herokuapp.com/api/activity</p>
                 </span>
-                <span style="display: flex;gap: 10px;">
-                    <p style="background-color: rgb(103, 237, 103); border-radius: 5px;">
+                <span>
+                    <p class="api-method post">
                         POST
                     </p>
                     <p>https://qorypos-api.herokuapp.com/api/activity</p>
                 </span>
-                <span style="display: flex;gap: 10px;">
-                    <p  style="background-color: red; border-radius: 5px; color: white;">
+                <span>
+                    <p class="api-method delete">
                         DELETE
                     </p>
                     <p>
@@ -109,7 +96,7 @@
             </div>
         </section>
         <footer style="margin-top: 40px; text-align: center; ">
-            <span style="opacity:50%;">Built with love by teamhendri18@gmail.com</span>
+            <span style="opacity:50%;">Built with love by hendrialqory</span>
         </footer>
     </div>
 </body>

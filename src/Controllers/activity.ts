@@ -1,21 +1,11 @@
 import { activity } from "../Models/activity.db";
 import { Request, Response } from "express";
-
-type productTypes = {
-    id      :number,
-    title   :string,
-    category:string,
-    images  :string,
-    price   :number,
-    qyt     :number,
-    decs    :string,
-    total_price:number
-}
+import { productType } from '../Types/Type'
 
 type activityTypes = {
     id : number
     date : string
-    data : Array<productTypes>
+    data : Array<productType>
     total_price : number
 
 }

@@ -17,6 +17,7 @@ function main(): void{
 
     dbAuthenticate();
     app.use(express.json())
+    app.use(express.static('template'))
     app.use(compression())
     app.use(helmet())
     app.use(cors({
@@ -32,10 +33,8 @@ function main(): void{
     }))
 
     app.get('/', (req, res) => {
-        res.sendFile('./app.html', { root : __dirname})
+        res.render('index.html')
     })
-
-    
 
     app.listen(PORT, ()=> console.log(`Server is running on http://localhost:${PORT}`))
 }

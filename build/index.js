@@ -17,6 +17,7 @@ function main() {
     (0, dotenv_1.config)();
     (0, Database_1.dbAuthenticate)();
     app.use(express_1.default.json());
+    app.use(express_1.default.static('template'));
     app.use((0, compression_1.default)());
     app.use((0, helmet_1.default)());
     app.use((0, cors_1.default)({
@@ -29,7 +30,7 @@ function main() {
         message: 'Too many request, try again letter'
     }));
     app.get('/', (req, res) => {
-        res.sendFile('./app.html', { root: __dirname });
+        res.render('index.html');
     });
     app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
 }

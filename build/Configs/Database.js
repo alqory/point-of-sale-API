@@ -13,7 +13,7 @@ exports.dbAuthenticate = exports.posDB = void 0;
 const sequelize_1 = require("sequelize");
 const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)();
-// Production db setting
+// Develpoment db setting
 // export const posDB = new Sequelize('posdb', 'postgres','123456',{
 //     host : 'localhost',
 //     dialect : "postgres",
@@ -24,6 +24,7 @@ const dotenv_1 = require("dotenv");
 //         idle: 10000
 //       },
 // })
+// Production setting
 exports.posDB = new sequelize_1.Sequelize(`${process.env.DATABASE_URI}`, {
     dialectOptions: {
         ssl: {

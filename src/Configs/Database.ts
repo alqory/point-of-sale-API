@@ -1,10 +1,8 @@
 import { Sequelize } from 'sequelize'
 import { config } from 'dotenv';
-
-
 config();
 
-// Production db setting
+// Develpoment db setting
 // export const posDB = new Sequelize('posdb', 'postgres','123456',{
 //     host : 'localhost',
 //     dialect : "postgres",
@@ -16,6 +14,7 @@ config();
 //       },
 // })
 
+// Production setting
 export const posDB = new Sequelize(`${process.env.DATABASE_URI}`,{
     dialectOptions : {
         ssl :  {

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    max-width: 700px;
+    margin: 20px auto;
+}
+h1{
+    text-align: center;
+}
+p {
+    padding: 5px;
+}
+
+.api{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+.api-method{
+    border-radius: 5px;
+}
+
+.get {
+    background-color: aquamarine;
+}
+
+.post {
+    background-color: rgb(124, 238, 90);
+}
+
+.put{
+    background-color: yellow;
+}
+
+.delete{
+    color: white;
+    background-color: rgb(232, 59, 59);
+}
+
+@media(max-width:425px){
+    p{
+        font-size: .6rem;
+    }
+}
