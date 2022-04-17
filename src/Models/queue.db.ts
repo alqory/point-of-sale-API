@@ -4,9 +4,13 @@ import { DataTypes } from 'sequelize';
 export const queue = posDB.define('queue', {
     id : {
         type : DataTypes.INTEGER,
-        primaryKey:true,
+        primaryKey : true,
         autoIncrement : true,
         allowNull:false
+    },
+    serial_id : {
+        type : DataTypes.INTEGER,
+        allowNull : false
     },
     data : {
         type : DataTypes.JSONB,
@@ -25,4 +29,4 @@ export const queue = posDB.define('queue', {
 })
 
 // If have changes in db column, ignone comment sync in bottom!
-queue.sync()
+queue.sync({alter:true})

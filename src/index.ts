@@ -17,12 +17,17 @@ function main(): void{
 
     dbAuthenticate();
     app.use(express.json())
+    app.use(express.urlencoded({extended:false}))
     app.use(express.static('template'))
     app.use(compression())
     app.use(helmet())
+
+    const whitelist = ['http://localhost:3000', 'https://qorypos-api.herokuapp.com']
     app.use(cors({
-        origin : '*'
+        origin : whitelist[0],
+        credentials : true
     }))
+    
     app.use(router)
 
 
