@@ -40,4 +40,4 @@ export const product = posDB.define('product', {
     timestamps : false
 })
 
-product.sync()
+product.sync({alter:true})

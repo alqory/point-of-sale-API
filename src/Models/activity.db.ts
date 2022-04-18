@@ -20,4 +20,4 @@ export const activity = posDB.define('activity', {
     timestamps : false
 })
 
-activity.sync()
+activity.sync({alter:true})

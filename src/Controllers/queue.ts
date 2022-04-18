@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import { queue } from '../Models/queue.db';
 import { productType } from '../Types/Type'
 
-
 type queueTypes = {
     id : number,
     serial_id : number,
@@ -29,10 +28,10 @@ export const createQueue = async(req:Request<{},{}, queueTypes,{}>, res:Response
     const { serial_id, data, total_price, name } = req.body;
     try {
        await queue.create({
-        serial_id : serial_id,
-           data : data,
-           total_price : total_price,
-           name : name
+           serial_id     : serial_id,
+           data          : data,
+           total_price   : total_price,
+           name          : name
        }) 
        res.status(200).json({
            message : "success!"

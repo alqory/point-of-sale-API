@@ -21,6 +21,13 @@ import {
      deleteAllActivity
 } from "../Controllers/activity";
 
+import {
+    getCategory,
+    createCategory,
+    updateCategory,
+    deleteCategory
+} from '../Controllers/category'
+
 export const router = Router();
 
 // product router
@@ -41,3 +48,9 @@ router.get('/api/activity', getActivity)
 router.post('/api/activity', addActivity)
 router.delete('/api/activity/delete/:id', deleteActivity)
 router.delete('/api/activity/deleteAll', deleteAllActivity)
+
+// category router
+router.get('/api/category', getCategory)
+router.post('/api/category', createCategory)
+router.delete('/api/category/delete/:id', deleteCategory)
+router.put('/api/category/update/:id', updateCategory)
