@@ -1,7 +1,6 @@
 import express, { Express } from 'express';
 import {dbAuthenticate} from './Configs/Database';
 import { config } from 'dotenv';
-import morgan from 'morgan'
 import compression from 'compression';
 import helmet from 'helmet';
 import cors from 'cors'
@@ -16,12 +15,11 @@ function main(): void{
 
     config()
 
-    // dbAuthenticate();
+    dbAuthenticate();
     app.use(express.json())
     app.use(express.static('template'))
     app.use(compression())
     app.use(helmet())
-    app.use(morgan('dev'))
 
     const whitelist = ['http://localhost:3000', 'https://qorypos.netlify.app']
     app.use(cors({
