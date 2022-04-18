@@ -5,6 +5,7 @@ const express_1 = require("express");
 const product_1 = require("../Controllers/product");
 const queue_1 = require("../Controllers/queue");
 const activity_1 = require("../Controllers/activity");
+const category_1 = require("../Controllers/category");
 exports.router = (0, express_1.Router)();
 // product router
 exports.router.get('/api/product', product_1.getAllProduct);
@@ -22,3 +23,8 @@ exports.router.get('/api/activity', activity_1.getActivity);
 exports.router.post('/api/activity', activity_1.addActivity);
 exports.router.delete('/api/activity/delete/:id', activity_1.deleteActivity);
 exports.router.delete('/api/activity/deleteAll', activity_1.deleteAllActivity);
+// category router
+exports.router.get('/api/category', category_1.getCategory);
+exports.router.post('/api/category', category_1.createCategory);
+exports.router.delete('/api/category/delete/:id', category_1.deleteCategory);
+exports.router.put('/api/category/update/:id', category_1.updateCategory);

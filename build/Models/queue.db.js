@@ -10,6 +10,10 @@ exports.queue = Database_1.posDB.define('queue', {
         autoIncrement: true,
         allowNull: false
     },
+    serial_id: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false
+    },
     data: {
         type: sequelize_1.DataTypes.JSONB,
         allowNull: true
@@ -25,4 +29,4 @@ exports.queue = Database_1.posDB.define('queue', {
     timestamps: false
 });
 // If have changes in db column, ignone comment sync in bottom!
-exports.queue.sync();
+exports.queue.sync({ alter: true });

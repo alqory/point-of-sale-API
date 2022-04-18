@@ -9,77 +9,83 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteAllData = exports.deleteQueueFromID = exports.createQueue = exports.getAllQueue = void 0;
-const queue_db_1 = require("../Models/queue.db");
-const getAllQueue = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.updateCategory = exports.deleteCategory = exports.createCategory = exports.getCategory = void 0;
+const category_db_1 = require("../Models/category.db");
+const getCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const allData = yield queue_db_1.queue.findAll();
-        res.status(200).send(allData);
+        const data = yield category_db_1.category.findAll();
+        res.send(data);
     }
     catch (error) {
         if (error instanceof Error) {
-            res.status(404).json({
+            res.json({
                 message: error.message
             });
         }
     }
 });
-exports.getAllQueue = getAllQueue;
-const createQueue = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { serial_id, data, total_price, name } = req.body;
+exports.getCategory = getCategory;
+const createCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id, name } = req.body;
     try {
-        yield queue_db_1.queue.create({
-            serial_id: serial_id,
-            data: data,
-            total_price: total_price,
+        yield category_db_1.category.create({
+            id: id,
             name: name
         });
         res.status(200).json({
-            message: "success!"
+            message: 'success create new category'
         });
     }
     catch (error) {
         if (error instanceof Error) {
-            res.status(404).json({
+            res.json({
                 message: error.message
             });
         }
     }
 });
-exports.createQueue = createQueue;
-const deleteQueueFromID = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.createCategory = createCategory;
+const deleteCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield queue_db_1.queue.destroy({
+        yield category_db_1.category.destroy({
             where: {
                 id: req.params.id
             }
         });
-        res.status(200).json({
-            message: 'success deleted!'
+        res.json({
+            message: 'deleted!'
         });
     }
     catch (error) {
         if (error instanceof Error) {
-            res.status(404).json({
+            res.json({
                 message: error.message
             });
         }
     }
 });
-exports.deleteQueueFromID = deleteQueueFromID;
-const deleteAllData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.deleteCategory = deleteCategory;
+const updateCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id, name } = req.body;
     try {
-        yield queue_db_1.queue.truncate();
-        res.status(200).json({
-            message: 'success deleted all data!'
+        yield category_db_1.category.update({
+            id: id,
+            name: name
+        }, {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({
+            message: 'updated!'
         });
     }
     catch (error) {
         if (error instanceof Error) {
-            res.status(404).json({
+            res.json({
                 message: error.message
             });
         }
     }
 });
-exports.deleteAllData = deleteAllData;
+exports.updateCategory = updateCategory;

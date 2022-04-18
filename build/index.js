@@ -20,8 +20,10 @@ function main() {
     app.use(express_1.default.static('template'));
     app.use((0, compression_1.default)());
     app.use((0, helmet_1.default)());
+    const whitelist = ['http://localhost:3000', 'https://qorypos.netlify.app'];
     app.use((0, cors_1.default)({
-        origin: '*'
+        origin: whitelist[0],
+        credentials: true
     }));
     app.use(routes_1.router);
     app.use((0, express_rate_limit_1.rateLimit)({
