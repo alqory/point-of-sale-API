@@ -23,8 +23,8 @@ function main(): void{
 
     const whitelist = ['http://localhost:3000', 'https://qorypos.netlify.app']
     app.use(cors({
-        origin : whitelist[1],
-        credentials : true
+        // origin : whitelist[0],
+        origin : '*'
     }))
     
     app.use(router)
