@@ -1,7 +1,9 @@
-# point-of-sale-API
-Hello there!
+## point-of-sale-API
 Im have been create API-endpoint with express & typescript.
-Demo site https://qorypos-api.herokuapp.com/
+Demo site [qorypos-api](https://qorypos-api.herokuapp.com/)
 
-regards,
-Hendri Alqory
+### Tools
+- [Express JS](https://expressjs.com/)
+- [Typescript](https://expressjs.com/)
+- [Postgre SQL](https://www.postgresql.org/)
+- [Heroku (Deploying)](https://www.heroku.com/)
